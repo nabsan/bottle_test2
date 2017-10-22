@@ -1,0 +1,13 @@
+from bottle import route, run, template
+
+@route('/hello/<name>')
+def index(name):
+    return template('<b>Hello {{name}}</b>!', name=name)
+
+#run(host='localhost', port=8080)
+if __name__ == '__main__':
+    #commmand line
+    run(host='localhost', port=8080)
+else:
+    #uWSGI
+    application = default_app()
